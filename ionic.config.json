@@ -1,0 +1,7 @@
+{
+  "name": "Proyectofrank",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
