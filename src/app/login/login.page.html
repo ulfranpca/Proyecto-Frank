@@ -1,0 +1,39 @@
+<ion-content>
+
+  <figure class="size-logo">
+    <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/6569c186755697.Y3JvcCwxMDI0LDgwMCwwLDc2.png" />
+  </figure>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+
+    <ion-item fill="solid">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of validation_message.email">
+        <div *ngIf="
+    loginForm.get('email')?.hasError(validation.type) && 
+    (loginForm.get('email')?.dirty || 
+    loginForm.get('email')?.touched)
+    ">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item fill="solid">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-button shape="round" color="warning" [disabled]="!loginForm.valid" type="submit">
+      Login
+    </ion-button>
+    <ion-button shape="round" color="warning" (click)="registrarse()" type="submit">
+      Registrarse
+    </ion-button>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>!!!pensar en grande¡¡¡</ion-title>
+  </ion-toolbar>
+</ion-footer>
