@@ -1,3 +1,18 @@
+//mis personalizaciones
+
+ion-slide[name="slide-perzonalizado"] > p {
+  font-style: bold;
+  font-size: 15px;
+  border: solid;
+  border-color: red;
+  border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 30px;
+  padding: 10px 20px 10px 20px;
+  margin: 5px 5px 5px 5px;
+}
 
 ion-content {
   

@@ -37,6 +37,13 @@ export class IntroPage implements OnInit {
       subtitle: "Miedo",
       img: "assets/3.jpg",
       description: "la cruel realidad de la vida."
+    },
+    {
+      title: "Fantasia",
+      desc: null,
+      subtitle: "Miedo",
+      img: "assets/3.jpg",
+      description: "la cruel realidad de la vida."
     }
   ]
 
