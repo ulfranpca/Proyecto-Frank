@@ -26,6 +26,12 @@ export class AuthenticateService {
     });
   }
 
+  Booklogout()
+  {
+    this.storage.set('isUserLoggedIn',false);  
+    this.storage.remove("user_id")    
+  }
+
   registerUserLocal(userData: any){
     userData.password = btoa(userData.password);
     return this.storage.set("user", userData);

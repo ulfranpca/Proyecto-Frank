@@ -18,6 +18,9 @@ export class LoginPage implements OnInit {
     email: [
       { type: "required", message: "El Email es Obligatorio" },
       { type: "pattern", message: "Tu email no es valido" }
+    ],
+    password: [
+      { type: "required", message: "El password es Obligatorio" }
     ]
   }
 

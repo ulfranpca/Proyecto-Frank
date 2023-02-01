@@ -14,7 +14,7 @@
 
   <ion-list>
 
-    <ion-item *ngFor="let favorite of my_favorite_books">
+    <ion-item *ngFor="let favorite of my_favorite_books" (click)="showBook(favorite)">
       <ion-label>{{favorite.name}}</ion-label>
     </ion-item>
 

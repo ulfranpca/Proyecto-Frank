@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authenticate.service';
 import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,31 @@ export class RegisterPage implements OnInit {
 
   registerForm: FormGroup;
 
+  validation_message = {
+    name: [
+      { type: "required", message: "El nombre es Obligatorio" }
+    ],
+    last_name: [
+      { type: "required", message: "El apellido es Obligatorio" }
+    ],
+    document_type: [
+      { type: "required", message: "El tipo de documento es Obligatorio" }
+    ],
+    document_number: [
+      { type: "required", message: "El numero de documento es Obligatorio" }
+    ],
+    career: [
+      { type: "required", message: "La carrera es Obligatoria" }
+    ],
+    email: [
+      { type: "required", message: "El Email es Obligatorio" },
+      { type: "pattern", message: "Tu email no es valido" }
+    ],
+    password: [
+      { type: "required", message: "El password es Obligatorio" }
+    ]
+  }
+
   constructor(private navCtrl: NavController, 
     private formBuilder: FormBuilder,
     private authenticate: AuthenticateService,
@@ -20,13 +46,36 @@ export class RegisterPage implements OnInit {
     ) { 
 
     this.registerForm = this.formBuilder.group({
-      name: new FormControl(),
-      last_name: new FormControl(),
-      document_type: new FormControl(),
-      document_number: new FormControl(),
-      career: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(
+      name: new FormControl("",
+      Validators.compose([
+        Validators.required
+      ])),
+      last_name: new FormControl("",
+      Validators.compose([
+        Validators.required
+      ])),
+      document_type: new FormControl("",
+      Validators.compose([
+        Validators.required
+      ])),
+      document_number: new FormControl("",
+      Validators.compose([
+        Validators.required
+      ])),
+      career: new FormControl("",
+      Validators.compose([
+        Validators.required
+      ])),
+      email: new FormControl("",
+      Validators.compose([
+        Validators.required,
+        Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
+      ])),
+      password: new FormControl("",
+      Validators.compose([
+        Validators.required,
+        Validators.minLength(5)
+      ])
       )
     });
   }

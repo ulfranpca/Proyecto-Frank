@@ -24,10 +24,21 @@
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of validation_message.password">
+        <div *ngIf="
+    loginForm.get('password')?.hasError(validation.type) && 
+    (loginForm.get('password')?.dirty || 
+    loginForm.get('password')?.touched)
+    ">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
     <ion-button shape="round" color="warning" [disabled]="!loginForm.valid" type="submit">
       Login
     </ion-button>
-    <ion-button shape="round" color="warning" (click)="registrarse()" type="submit">
+    <ion-button shape="round" color="warning" (click)="registrarse()">
       Registrarse
     </ion-button>
   </form>
